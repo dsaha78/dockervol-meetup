@@ -1,0 +1,8 @@
+FROM ubuntu:14.04
+
+VOLUME /var/lib/mysql
+
+RUN apt-get -y install mysql-server
+RUN touch /etc/sysconfig/network
+
+EXPOSE 3306
