@@ -53,13 +53,14 @@
 						<ul>
 							<li>Problem at Hand</li>
 							<li>Data Volume</li>
+							<li>Data Volume Container</li>
 							<li>Sharing Data with Host</li>
 							<li>Sharing Data between Container</li>
 							<li>What to look out for</li>
 						</ul>
 				</section>
 
-				<section id="Problem">
+				<section id="Problem" data-background-transition="zoom">
 					<h2> Problem At hand</h2>
 					  <ul>
 							<li> Temporal Nature of Containers</li>
@@ -77,6 +78,9 @@
 					  <ul>
 							<li> Fundamental Building Block for sharing data </li>
 							<li> Part of Host filesystem </li>
+							<li> Get initialized during container creation </li>
+							<li> shared and reused among containers </li>
+							<li> data volumes are persistant </li>
 							<li> Mounted inside Containers </li>
 							<li> Access Control (ro/rw) </li>
 							<li> Creted either with Dockerfile or using -v subcommand </li>
@@ -89,6 +93,16 @@
 							application that was stored in the directory.
 						</aside>
 				</section>
+
+				<section id="DemoDV">
+					<h2> Demo </h2>
+					<ul>
+						<li class="fragment highlight-current-blue"> Adding a data Volume </li>
+						<li class="fragment highlight-current-blue"> Locating a volume </li>
+						<li class="fragment highlight-current-blue"> Mount a host directory as a data volume </li>
+						<li class="fragment highlight-current-blue"> Mount a host file as a data volume </li>
+					</ul>
+					</section>
 
 				<!-- Example of nested vertical slides -->
 				<section>
