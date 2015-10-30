@@ -2,7 +2,7 @@
 
 Docker-File : Dockerfile.volDemo
 
-1. sudo docker build -t volDemo -f Dockerfile.colDemo .
+1. sudo docker build -t volDemo -f Dockerfile.voldemo .
 2. docker run -it -P --name volDemo1 -v /volumeDemo ubuntu:14.04
 3. docker inspect volDemo1
 4. docker run -it -P --name volDemo2 -v ${PWD}/demo:/volumeDemo/demo ubuntu:14.04
@@ -20,8 +20,14 @@ Docker-File : Dockerfile.httpd
 
 Docker-File : Dockerfile.apachedatavol
 
-1. sudo docker build -t -f Dockerfile.apachedatavol apache2log .
+1. sudo docker build -f Dockerfile.apachedatavol -t apache2log .
 2. sudo docker run --name log_vol apache2log
 3. sudo docker run -d -p 80:80 --volumes-from log_vol apache2
 4. sudo docker run --rm --volumes-from log_vol busybox:latest ls -l /var/log/apache2
 5. sudo docker run --rm --volumes-from log_vol ubuntu:14.04 tail /var/log/apache2/error.log
+
+
+// Backup
+1. docker run --volumes-from log_vol -v $(pwd):/backup ubuntu:14.04 tar cvf /backup/backup.tar /var/log/apache2
+2. docker run -v /test --name log_vol2 ubuntu:14.04 /bin/bash
+3. sudo docker run --volumes-from log_vol2 -v $(pwd):/backup ubuntu:14.04 tar xvf /backup/test.tar
